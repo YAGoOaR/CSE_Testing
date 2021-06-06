@@ -47,10 +47,30 @@ namespace YAGoOaR.BinaryFlag.Test
 
             [TestMethod]
             public void Test_SetFlag() {
-                MultipleBinaryFlag flags = new MultipleBinaryFlag(2, false);
+                bool initialVal = false;
+                MultipleBinaryFlag flags = new MultipleBinaryFlag(2, initialVal);
                 flags.SetFlag(0);
                 flags.SetFlag(1);
                 Assert.AreEqual(flags.GetFlag(), true);
+            }
+
+            [TestMethod]
+            public void Test_Reset_Set_Flag() {
+                MultipleBinaryFlag flags = new MultipleBinaryFlag(2, true);
+                flags.ResetFlag(0);
+                flags.ResetFlag(1);
+                flags.SetFlag(0);
+                flags.SetFlag(1);
+                Assert.AreEqual(flags.GetFlag(), true);
+            }
+
+            [TestMethod]
+            public void Test_Set_Reset_Flag() {
+                MultipleBinaryFlag flags = new MultipleBinaryFlag(2, false);
+                flags.SetFlag(0);
+                flags.SetFlag(1);
+                flags.ResetFlag(0);
+                Assert.AreEqual(flags.GetFlag(), false);
             }
         }
 
