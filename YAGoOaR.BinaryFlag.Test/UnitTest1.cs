@@ -221,14 +221,32 @@ namespace YAGoOaR.BinaryFlag.Test
         }
 
         [TestClass]
-        public class DisposedFlagStateTests
+        public class FlagStateTests
         {
+            [TestMethod]
+            public void Dispose_GetFlag_Expect_Not_True() {
+                MultipleBinaryFlag flags = new MultipleBinaryFlag(2);
+                flags.Dispose();
+                Assert.AreNotEqual(flags.GetFlag(), true);
+            }
+
+            [TestMethod]
+            public void Dispose_SetFlags_GetFlag_Expect_Not_True() {
+                MultipleBinaryFlag flags = new MultipleBinaryFlag(2);
+                flags.Dispose();
+                flags.SetFlag(0);
+                flags.SetFlag(1);
+                Assert.AreNotEqual(flags.GetFlag(), true);
+            }
+
+            //Considering specification literally:
             [TestMethod]
             public void Dispose_GetFlag_Expect_False() {
                 MultipleBinaryFlag flags = new MultipleBinaryFlag(inPoint1);
                 flags.Dispose();
                 Assert.AreEqual(flags.GetFlag(), false);
             }
+
             [TestMethod]
             public void Dispose_ChangeFlags_GetFlag_Expect_False() {
                 MultipleBinaryFlag flags = new MultipleBinaryFlag(inPoint1);
@@ -237,6 +255,23 @@ namespace YAGoOaR.BinaryFlag.Test
                 flags.SetFlag(1);
                 Assert.AreEqual(flags.GetFlag(), false);
             }
+
+            ////Considering specification intuitive:
+            //[TestMethod]
+            //public void Dispose_GetFlag_Expect_Null() {
+            //    MultipleBinaryFlag flags = new MultipleBinaryFlag(inPoint1);
+            //    flags.Dispose();
+            //    Assert.AreEqual(flags.GetFlag(), null);
+            //}
+
+            //[TestMethod]
+            //public void Dispose_ChangeFlags_GetFlag_Expect_Null() {
+            //    MultipleBinaryFlag flags = new MultipleBinaryFlag(inPoint1);
+            //    flags.Dispose();
+            //    flags.ResetFlag(0);
+            //    flags.SetFlag(1);
+            //    Assert.AreEqual(flags.GetFlag(), null);
+            //}
         }
     }
 }
