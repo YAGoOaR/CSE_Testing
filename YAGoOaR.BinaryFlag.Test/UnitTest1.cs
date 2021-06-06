@@ -224,18 +224,18 @@ namespace YAGoOaR.BinaryFlag.Test
         public class DisposedFlagStateTests
         {
             [TestMethod]
-            public void Dispose_GetFlag_Expect_Null() {
+            public void Dispose_GetFlag_Expect_False() {
                 MultipleBinaryFlag flags = new MultipleBinaryFlag(inPoint1);
                 flags.Dispose();
-                Assert.AreEqual(flags.GetFlag(), null);
+                Assert.AreEqual(flags.GetFlag(), false);
             }
             [TestMethod]
-            public void Dispose_Setflag_GetFlag_Expect_Null() {
+            public void Dispose_ChangeFlags_GetFlag_Expect_False() {
                 MultipleBinaryFlag flags = new MultipleBinaryFlag(inPoint1);
                 flags.Dispose();
                 flags.ResetFlag(0);
                 flags.SetFlag(1);
-                Assert.AreEqual(flags.GetFlag(), null);
+                Assert.AreEqual(flags.GetFlag(), false);
             }
         }
     }
