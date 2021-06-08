@@ -18,6 +18,9 @@ namespace YAGoOaR.PasswordHashingUtils.Test
         const string nonAsciiSalt = "お前はもう死んでいる";
         const uint customModAdler32 = 12345;
 
+        const string customPassword = "password";
+        const string nonAsciiPassword = "パスワード";
+
         [TestInitialize]
         public void TestInitialize() {
             passwordHasher = new PasswordHasher();
@@ -50,10 +53,25 @@ namespace YAGoOaR.PasswordHashingUtils.Test
 
             string newSalt = (string)saltField.GetValue(passwordHasher);
             Assert.AreEqual(saltRemainsInitial, newSalt == initialSalt, failMessage);
-
             uint newModAdler32 = (uint)modAdler32Field.GetValue(passwordHasher);
             Assert.AreEqual(modAdlerRemainsInitial, newModAdler32 == initialModAdler32, failMessage);
         }
 
+        [DataTestMethod]
+        [DataRow("0-4-5", null, true)]
+        [DataRow("0-1-3-5", customPassword, false)]
+        [DataRow("0-1-2-3-5", nonAsciiPassword, true)]
+        public void GetHashMethodTests(string pathName, string initialPassword, bool expectNull) {
+            string failMessage = $"{pathName} thread test failed.";
+
+            string hash = PasswordHasher.GetHash(initialPassword, customSalt, customModAdler32);
+
+            if (expectNull) {
+                Assert.IsNull(hash);
+            } else {
+                Assert.IsNotNull(hash);
+            }
+            
+        }
     }
 }
