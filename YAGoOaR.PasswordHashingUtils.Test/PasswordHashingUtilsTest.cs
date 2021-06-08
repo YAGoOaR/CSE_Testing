@@ -46,7 +46,7 @@ namespace YAGoOaR.PasswordHashingUtils.Test
         [DataRow("0-1-2-3-4-5", nonAsciiSalt, customModAdler32, false, false)]
         public void InitMethodTests(string pathName, string salt, uint adlerMod32, bool saltRemainsInitial, bool modAdlerRemainsInitial) {
             string failMessage = $"{pathName} thread test failed.";
-            string hash = PasswordHasher.GetHash("password", salt, adlerMod32);
+            PasswordHasher.Init(salt, adlerMod32);
 
             string newSalt = (string)saltField.GetValue(passwordHasher);
             Assert.AreEqual(saltRemainsInitial, newSalt == initialSalt, failMessage);
