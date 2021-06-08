@@ -2,6 +2,7 @@
 using System.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using IIG.PasswordHashingUtils;
+using System.Text;
 
 namespace YAGoOaR.PasswordHashingUtils.Test
 {
@@ -45,22 +46,30 @@ namespace YAGoOaR.PasswordHashingUtils.Test
         [DataRow("0-4-5", "", customModAdler32, true, false)]
         [DataRow("0-1-3-5", customSalt, (uint)0, false, true)]
         [DataRow("0-1-3-4-5", customSalt, customModAdler32, false, false)]
-        [DataRow("0-1-2-3-5", nonAsciiSalt, (uint)0, false, true)]
-        [DataRow("0-1-2-3-4-5", nonAsciiSalt, customModAdler32, false, false)]
-        public void InitMethodTests(string pathName, string salt, uint adlerMod32, bool saltRemainsInitial, bool modAdlerRemainsInitial) {
+        [DataRow("0-1-2-3-5", nonAsciiSalt, (uint)0, false, true, true)]
+        [DataRow("0-1-2-3-4-5", nonAsciiSalt, customModAdler32, false, false, true)]
+        public void InitMethodTests(string pathName, string salt, uint adlerMod32,
+            bool saltRemainsInitial, bool modAdlerRemainsInitial, bool expectNonAsciiDecryption = false) {
+
             string failMessage = $"{pathName} thread test failed.";
             PasswordHasher.Init(salt, adlerMod32);
 
             string newSalt = (string)saltField.GetValue(passwordHasher);
             Assert.AreEqual(saltRemainsInitial, newSalt == initialSalt, failMessage);
+
             uint newModAdler32 = (uint)modAdler32Field.GetValue(passwordHasher);
             Assert.AreEqual(modAdlerRemainsInitial, newModAdler32 == initialModAdler32, failMessage);
+
+            if (expectNonAsciiDecryption) {
+                string expected = Encoding.ASCII.GetString(Encoding.Unicode.GetBytes(salt));
+                Assert.AreEqual(expected, newSalt, failMessage);
+            }
         }
 
         [DataTestMethod]
         [DataRow("0-4-5", null, true)]
         [DataRow("0-1-3-5", customPassword, false)]
-        [DataRow("0-1-2-3-5", nonAsciiPassword, true)]
+        [DataRow("0-1-2-3-5", nonAsciiPassword, false)]
         public void GetHashMethodTests(string pathName, string initialPassword, bool expectNull) {
             string failMessage = $"{pathName} thread test failed.";
 
@@ -71,7 +80,6 @@ namespace YAGoOaR.PasswordHashingUtils.Test
             } else {
                 Assert.IsNotNull(hash);
             }
-            
         }
     }
 }
