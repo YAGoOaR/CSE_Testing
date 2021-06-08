@@ -25,13 +25,13 @@ namespace YAGoOaR.BinaryFlag.Test
             [TestMethod]
             public void Test_initialValue_True() {
                 MultipleBinaryFlag flags = new MultipleBinaryFlag(inPoint1, true);
-                Assert.AreEqual(flags.GetFlag(), true);
+                Assert.AreEqual(true, flags.GetFlag());
             }
 
             [TestMethod]
             public void Test_initialValue_False() {
                 MultipleBinaryFlag flags = new MultipleBinaryFlag(inPoint1, false);
-                Assert.AreEqual(flags.GetFlag(), false);
+                Assert.AreEqual(false, flags.GetFlag());
             }
         }
 
@@ -42,7 +42,7 @@ namespace YAGoOaR.BinaryFlag.Test
             public void Test_ResetFlag() {
                 MultipleBinaryFlag flags = new MultipleBinaryFlag(range1_length, true);
                 flags.ResetFlag(range1_mid);
-                Assert.AreEqual(flags.GetFlag(), false);
+                Assert.AreEqual(false, flags.GetFlag());
             }
 
             [TestMethod]
@@ -51,7 +51,7 @@ namespace YAGoOaR.BinaryFlag.Test
                 MultipleBinaryFlag flags = new MultipleBinaryFlag(2, initialVal);
                 flags.SetFlag(0);
                 flags.SetFlag(1);
-                Assert.AreEqual(flags.GetFlag(), true);
+                Assert.AreEqual(true, flags.GetFlag());
             }
 
             [TestMethod]
@@ -61,7 +61,7 @@ namespace YAGoOaR.BinaryFlag.Test
                 flags.ResetFlag(1);
                 flags.SetFlag(0);
                 flags.SetFlag(1);
-                Assert.AreEqual(flags.GetFlag(), true);
+                Assert.AreEqual(true, flags.GetFlag());
             }
 
             [TestMethod]
@@ -70,7 +70,7 @@ namespace YAGoOaR.BinaryFlag.Test
                 flags.SetFlag(0);
                 flags.SetFlag(1);
                 flags.ResetFlag(0);
-                Assert.AreEqual(flags.GetFlag(), false);
+                Assert.AreEqual(false, flags.GetFlag());
             }
         }
 
@@ -80,31 +80,31 @@ namespace YAGoOaR.BinaryFlag.Test
             [TestMethod]
             public void Test_InPoint_middle() {
                 MultipleBinaryFlag flags = new MultipleBinaryFlag(middlePoint);
-                Assert.AreEqual(flags.GetFlag(), true);
+                Assert.AreEqual(true, flags.GetFlag());
             }
 
             [TestMethod]
             public void Test_OnPoint_min() {
                 MultipleBinaryFlag flags = new MultipleBinaryFlag(minBinaries);
-                Assert.AreEqual(flags.GetFlag(), true);
+                Assert.AreEqual(true, flags.GetFlag());
             }
 
             [TestMethod]
             public void Test_OnPoint_max() {
                 MultipleBinaryFlag flags = new MultipleBinaryFlag(maxBinaries);
-                Assert.AreEqual(flags.GetFlag(), true);
+                Assert.AreEqual(true, flags.GetFlag());
             }
 
             [TestMethod]
             public void Test_OffPoint_min() {
                 MultipleBinaryFlag flags = new MultipleBinaryFlag(minBinaries + offPointOffset);
-                Assert.AreEqual(flags.GetFlag(), true);
+                Assert.AreEqual(true, flags.GetFlag());
             }
 
             [TestMethod]
             public void Test_OffPoint_max() {
                 MultipleBinaryFlag flags = new MultipleBinaryFlag(maxBinaries - offPointOffset);
-                Assert.AreEqual(flags.GetFlag(), true);
+                Assert.AreEqual(true, flags.GetFlag());
             }
 
             [TestMethod]
@@ -129,35 +129,35 @@ namespace YAGoOaR.BinaryFlag.Test
             public void Test_InPoint_middle() {
                 MultipleBinaryFlag flags = new MultipleBinaryFlag(range1_length);
                 flags.ResetFlag(range1_mid);
-                Assert.AreEqual(flags.GetFlag(), false);
+                Assert.AreEqual(false, flags.GetFlag());
             }
 
             [TestMethod]
             public void Test_OnPoint_min() {
                 MultipleBinaryFlag flags = new MultipleBinaryFlag(range1_length);
                 flags.ResetFlag(range1_min);
-                Assert.AreEqual(flags.GetFlag(), false);
+                Assert.AreEqual(false, flags.GetFlag());
             }
 
             [TestMethod]
             public void Test_OnPoint_max() {
                 MultipleBinaryFlag flags = new MultipleBinaryFlag(range1_length);
                 flags.ResetFlag(range1_max);
-                Assert.AreEqual(flags.GetFlag(), false);
+                Assert.AreEqual(false, flags.GetFlag());
             }
 
             [TestMethod]
             public void Test_OffPoint_min() {
                 MultipleBinaryFlag flags = new MultipleBinaryFlag(range1_length);
                 flags.ResetFlag(range1_min + offPointOffset);
-                Assert.AreEqual(flags.GetFlag(), false);
+                Assert.AreEqual(false, flags.GetFlag());
             }
 
             [TestMethod]
             public void Test_OffPoint_max() {
                 MultipleBinaryFlag flags = new MultipleBinaryFlag(range1_length);
                 flags.ResetFlag(range1_max - offPointOffset);
-                Assert.AreEqual(flags.GetFlag(), false);
+                Assert.AreEqual(false, flags.GetFlag());
             }
 
             [TestMethod]
@@ -188,35 +188,35 @@ namespace YAGoOaR.BinaryFlag.Test
             public void Test_InPoint_middle() {
                 MultipleBinaryFlag flags = new MultipleBinaryFlag(range1_length);
                 flags.SetFlag(range1_mid);
-                Assert.AreEqual(flags.GetFlag(), true);
+                Assert.AreEqual(true, flags.GetFlag());
             }
 
             [TestMethod]
             public void Test_OnPoint_min() {
                 MultipleBinaryFlag flags = new MultipleBinaryFlag(range1_length);
                 flags.SetFlag(range1_min);
-                Assert.AreEqual(flags.GetFlag(), true);
+                Assert.AreEqual(true, flags.GetFlag());
             }
 
             [TestMethod]
             public void Test_OnPoint_max() {
                 MultipleBinaryFlag flags = new MultipleBinaryFlag(range1_length);
                 flags.SetFlag(range1_max);
-                Assert.AreEqual(flags.GetFlag(), true);
+                Assert.AreEqual(true, flags.GetFlag());
             }
 
             [TestMethod]
             public void Test_OffPoint_min() {
                 MultipleBinaryFlag flags = new MultipleBinaryFlag(range1_length);
                 flags.SetFlag(range1_min + offPointOffset);
-                Assert.AreEqual(flags.GetFlag(), true);
+                Assert.AreEqual(true, flags.GetFlag());
             }
 
             [TestMethod]
             public void Test_OffPoint_max() {
                 MultipleBinaryFlag flags = new MultipleBinaryFlag(range1_length);
                 flags.SetFlag(range1_max - offPointOffset);
-                Assert.AreEqual(flags.GetFlag(), true);
+                Assert.AreEqual(true, flags.GetFlag());
             }
 
             [TestMethod]
@@ -247,7 +247,7 @@ namespace YAGoOaR.BinaryFlag.Test
             public void Dispose_GetFlag_Expect_Not_True() {
                 MultipleBinaryFlag flags = new MultipleBinaryFlag(2);
                 flags.Dispose();
-                Assert.AreNotEqual(flags.GetFlag(), true);
+                Assert.AreNotEqual(true, flags.GetFlag());
             }
 
             [TestMethod]
@@ -256,7 +256,7 @@ namespace YAGoOaR.BinaryFlag.Test
                 flags.Dispose();
                 flags.SetFlag(0);
                 flags.SetFlag(1);
-                Assert.AreNotEqual(flags.GetFlag(), true);
+                Assert.AreNotEqual(true, flags.GetFlag());
             }
 
             //Considering specification literally:
@@ -264,7 +264,7 @@ namespace YAGoOaR.BinaryFlag.Test
             public void Dispose_GetFlag_Expect_False() {
                 MultipleBinaryFlag flags = new MultipleBinaryFlag(inPoint1);
                 flags.Dispose();
-                Assert.AreEqual(flags.GetFlag(), false);
+                Assert.AreEqual(false, flags.GetFlag());
             }
 
             [TestMethod]
@@ -273,7 +273,7 @@ namespace YAGoOaR.BinaryFlag.Test
                 flags.Dispose();
                 flags.ResetFlag(0);
                 flags.SetFlag(1);
-                Assert.AreEqual(flags.GetFlag(), false);
+                Assert.AreEqual(false, flags.GetFlag());
             }
 
             ////Considering specification intuitive:

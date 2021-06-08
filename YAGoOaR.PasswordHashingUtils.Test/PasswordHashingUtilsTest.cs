@@ -8,8 +8,15 @@ namespace YAGoOaR.PasswordHashingUtils.Test
     {
         [TestMethod]
         public void TestMethod1() {
-            string hash = PasswordHasher.GetHash("iloveC#");
-            Assert.IsNotNull(hash);
+            string hash = PasswordHasher.GetHash("password");
+            Assert.IsNull(hash, hash);
         }
+
+        [TestMethod]
+        public void TestMethod2() {
+            string hash = PasswordHasher.GetHash("password");
+            Assert.IsNull(hash, hash);
+        }
+
     }
 }
