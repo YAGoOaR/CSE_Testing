@@ -109,11 +109,6 @@ namespace YAGoOaR.DatabaseInteraction.Test
     {
         const string outputFile = "output.txt";
 
-        [TestInitialize]
-        public void TestInit() {
-            
-        }
-
         [TestCleanup]
         public void Cleanup() {
             File.Delete(outputFile);
