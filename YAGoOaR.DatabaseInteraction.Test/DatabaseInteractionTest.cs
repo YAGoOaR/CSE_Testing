@@ -82,7 +82,7 @@ namespace YAGoOaR.DatabaseInteraction.Test
             [DataRow("Valid login, null password", "login", null, false)]
             [DataRow("Null login, valid password", null, "password", false)]
             [DataRow("Empty data", "", "", false)]
-            [DataRow("Valid login, empty password", "login", "", false)]
+            [DataRow("Valid login, empty password", "login", "", true)]
             [DataRow("Empty login, valid password", "", "password", false)]
             public void Test_Valid_Invalid_Credentials(string testName, string login, string password, bool isValid) {
                 string message = $"Test name: {testName}. login: {login}, password: {password}";
