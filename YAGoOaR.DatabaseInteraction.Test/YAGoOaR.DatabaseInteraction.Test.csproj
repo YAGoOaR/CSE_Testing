@@ -25,6 +25,9 @@
     <Reference Include="IIG.DatabaseConnectionUtils">
       <HintPath>Libraries\IIG.DatabaseConnectionUtils.dll</HintPath>
     </Reference>
+    <Reference Include="IIG.FileWorker">
+      <HintPath>Libraries\IIG.FileWorker.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
