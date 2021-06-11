@@ -80,6 +80,31 @@ namespace YAGoOaR.DatabaseInteraction.Test
                 $"AddCredentials(existing) result is True. Expected: False. " + message);
         }
 
+        [TestMethod]
+        public void Test_Update_Credentials() {
+            string login = "user1";
+            string password = "abcd";
+            string login2 = "user2";
+            string password2 = "efgh";
+            string message = $"login: {login}, password: {password}" +
+                $"login2: {login2}, password2: {password2}";
+
+            string passHash = PasswordHasher.GetHash(password, salt, adlerMod32);
+            string passHash2 = PasswordHasher.GetHash(password2, salt, adlerMod32);
+
+            Assert.IsTrue(DB.AddCredentials(login, passHash),
+                $"AddCredentials failed. " + message);
+
+            Assert.IsTrue(DB.UpdateCredentials(login, passHash, login2, passHash2),
+                $"UpdateCredentials failed. " + message);
+
+            Assert.IsFalse(DB.CheckCredentials(login, passHash),
+                $"CheckCredentials is unexpected. " + message);
+
+            Assert.IsTrue(DB.CheckCredentials(login2, passHash2),
+                $"CheckCredentials failed. " + message);
+        }
+
         [DataTestMethod]
         [DataRow("Valid data", "user1", "abcd", true)]
         [DataRow("Unicode data", "█", "□", true)]
