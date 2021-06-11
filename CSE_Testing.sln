@@ -5,9 +5,11 @@ VisualStudioVersion = 16.0.31105.61
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YAGoOaR.BinaryFlag.Test", "YAGoOaR.BinaryFlag.Test\YAGoOaR.BinaryFlag.Test.csproj", "{DA9CD139-42E5-4E4A-B2A3-A1049B300C0A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YAGoOaR.PasswordHashingUtils.Test", "YAGoOaR.PasswordHashingUtils.Test\YAGoOaR.PasswordHashingUtils.Test.csproj", "{E94307E3-73F9-4054-84F5-B4B9336E8D11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YAGoOaR.PasswordHashingUtils.Test", "YAGoOaR.PasswordHashingUtils.Test\YAGoOaR.PasswordHashingUtils.Test.csproj", "{E94307E3-73F9-4054-84F5-B4B9336E8D11}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IIG.PasswordHashingUtils", "IIG.PasswordHashingUtils\IIG.PasswordHashingUtils.csproj", "{685E8988-1197-431C-BB7F-5C37AA062360}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YAGoOaR.DatabaseInteraction.Test", "YAGoOaR.DatabaseInteraction.Test\YAGoOaR.DatabaseInteraction.Test.csproj", "{32A78FE1-2823-4F67-8AD0-B4E4241C67BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{685E8988-1197-431C-BB7F-5C37AA062360}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{685E8988-1197-431C-BB7F-5C37AA062360}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{685E8988-1197-431C-BB7F-5C37AA062360}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32A78FE1-2823-4F67-8AD0-B4E4241C67BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32A78FE1-2823-4F67-8AD0-B4E4241C67BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32A78FE1-2823-4F67-8AD0-B4E4241C67BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32A78FE1-2823-4F67-8AD0-B4E4241C67BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
